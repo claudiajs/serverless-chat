@@ -1,0 +1,23 @@
+{
+  "extends": "crockford",
+  "env": {
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "rules": {
+    "strict": ["error", "function"],
+    "semi": ["error", "always"],
+    "no-const-assign": "error",
+    "indent": ["error", "tab", { "SwitchCase": 1 } ],
+    "no-plusplus": "off", 
+    "quotes": ["error", "single", {"avoidEscape": true, "allowTemplateLiterals": true}],
+    "new-cap": ["error", { "capIsNewExceptions": ["Deferred", "Event"] }],
+    "no-unused-vars": "error",
+    "no-const-assign": "error",
+    "prefer-const": "error",
+    "one-var": "off",
+    "no-var": "error"
+  }
+}

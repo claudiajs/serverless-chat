@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Serverless Chat</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+	<span id="status"> </span>
+    <div id="connect-block">
+      <button id="connect">Connect</button>
+    </div>
+
+    <div id=subscribe-block class=hidden>
+	  <form id="subscribe" action="">
+      <h3>Subscribe to a topic</h3>
+      <input type=text id=topic value="chat/" />
+	  <input type="submit" value="Subscribe" />
+	  </form>
+    </div>
+
+    <div id=message-block class=hidden>
+      <h3>Post a message</h3>
+	  <form id="messageForm" action="">
+		  <textarea id="messageText" placeholder="Message text"></textarea>
+		  <input type="submit" value="Send">
+	  </form>
+    </div>
+
+    <div>
+      <h3>Messages</h3>
+      <ul id="messageList"></ul>
+    </div>
+
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.5.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/core-min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/sha256-min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/hmac-min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/enc-base64-min.js" type="text/javascript"></script>
+
+	<script src="/{{version}}/main.js"></script>
+  </body>
+</html>
