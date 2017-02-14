@@ -10,11 +10,11 @@ module.exports = function MQTTClient(options) {
 		currentTopic;
 	const self = this,
 		shouldLog = options && options.log,
-		log = function (message) {
+		log = function (message, arg) {
 			if (!shouldLog) {
 				return;
 			}
-			console.log(message);
+			console.log(message, arg);
 		},
 		onConnect = function (args) {
 			log('connected', args);

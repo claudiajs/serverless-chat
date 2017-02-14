@@ -8,6 +8,7 @@
     "build-site": "mkdir -p site && node src/util/package-html.js",
     "build-scripts": "webpack",
     "serve-dev": "http-server site -c-1",
+	"rebuild": "npm run clean && npm run build-site --$npm_package_name:buildenv=$npm_package_config_buildenv && webpack",
     "env": "env"
   },
   "config": {

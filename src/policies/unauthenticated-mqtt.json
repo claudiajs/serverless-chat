@@ -16,7 +16,7 @@
         {
             "Effect": "Allow",
             "Action": "iot:Subscribe",
-            "Resource": "arn:aws:iot:us-east-1:<accountId>:topicfilter/chat/*"
+            "Resource": "arn:aws:iot:*:*:topicfilter/chat/*"
         },
         {
             "Effect": "Allow",
