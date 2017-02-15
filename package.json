@@ -8,7 +8,7 @@
     "build-site": "mkdir -p site && node src/util/package-html.js",
     "build-scripts": "webpack",
     "serve-dev": "http-server site -c-1",
-	"rebuild": "npm run clean && npm run build-site --$npm_package_name:buildenv=$npm_package_config_buildenv && webpack",
+    "rebuild": "npm run clean && npm run build-site --$npm_package_name:buildenv=$npm_package_config_buildenv && webpack",
     "env": "env"
   },
   "config": {
@@ -22,6 +22,7 @@
   "license": "MIT",
   "devDependencies": {
     "babili-webpack-plugin": "0.0.10",
+    "crypto-js": "^3.1.8",
     "eslint": "^3.15.0",
     "eslint-config-crockford": "^1.0.0",
     "eslint-config-defaults": "^9.0.0",

@@ -1,7 +1,7 @@
-/*global module, CryptoJS */
+/*global module, require */
 /*eslint-disable new-cap */
 
-//TODO: load CryptoJS using require
+const CryptoJS = require('crypto-js');
 
 const sign = function (key, msg) {
 		'use strict';
