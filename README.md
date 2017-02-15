@@ -46,8 +46,11 @@ For unauthenticated access, do the following when creating the identity pool:
 
 ### TODO
 
-2) authenticated access
-3) automated config
+1. Sanitize/validate messages and prevent HTML/JS injection
+2. Add sender info
+3. authenticated access
+4. automated config
+5. Connection keep-alive/reconnect
 
 # More info
 

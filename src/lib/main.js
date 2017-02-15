@@ -82,7 +82,7 @@ const config = require('config'),
 			trySubscribing(jQuery(this).text());
 		});
 		jQuery('[role=channel-creator]').on('click', function () {
-			const topicField = jQuery('topic');
+			const topicField = jQuery('#topic');
 			if (topicField.val()) {
 				trySubscribing(topicField.val());
 			} else {
