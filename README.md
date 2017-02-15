@@ -44,6 +44,10 @@ For unauthenticated access, do the following when creating the identity pool:
 2. `npm run rebuild --serverless-chat:buildenv=production`
 3. upload the `site` folder somewhere
 
+## Posting an update directly to the gateway
+
+Check out the [`src/util/post-message.js`](src/util/post-message.js) to see how you can also post messages directly to chat channels (eg a system notification, or replying to messages from a Lambda function.
+
 ### TODO
 
 1. Add sender info
