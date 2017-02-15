@@ -1,5 +1,5 @@
-/*global module, AWS */
-//TODO load AWS using require
+/*global module, require */
+const AWS = require('aws-sdk');
 module.exports = function Authenticator(cognitoIdentityPoolId) {
 	'use strict';
 	const self = this;

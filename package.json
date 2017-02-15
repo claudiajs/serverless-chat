@@ -32,6 +32,7 @@
     "webpack": "^2.2.1"
   },
   "dependencies": {
+    "aws-sdk": "^2.13.0",
     "paho-mqtt": "^1.0.3"
   }
 }
