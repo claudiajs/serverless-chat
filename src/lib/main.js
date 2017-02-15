@@ -22,8 +22,7 @@ const config = require('config'),
 	},
 	appendMessage = function (message) {
 		'use strict';
-		const messageList = document.getElementById('messageList');
-		messageList.innerHTML +=  '<li>' + message + '</li>';
+		jQuery('<li>').text(message).appendTo('#messageList');
 	},
 	initPage = function () {
 		'use strict';
