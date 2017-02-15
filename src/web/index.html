@@ -1,35 +1,97 @@
 <!doctype html>
 <html>
   <head>
-    <title>Serverless Chat</title>
-    <link rel="stylesheet" href="css/style.css">
+	  <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	  <title>Serverless Chat</title>
+	  <link rel="stylesheet" href="/{{version}}/main.css">
   </head>
   <body>
-	<span id="status"> </span>
-    <div id="connect-block">
-      <button id="connect">Connect</button>
-    </div>
 
-    <div id=subscribe-block class=hidden>
-	  <form id="subscribe" action="">
-      <h3>Subscribe to a topic</h3>
-      <input type=text id=topic value="chat/" />
-	  <input type="submit" value="Subscribe" />
-	  </form>
-    </div>
 
-    <div id=message-block class=hidden>
-      <h3>Post a message</h3>
-	  <form id="messageForm" action="">
-		  <textarea id="messageText" placeholder="Message text"></textarea>
-		  <input type="submit" value="Send">
-	  </form>
-    </div>
+      <div class="container">
+        <div class="header">
+			<span class="text-muted" id="status"></span>
+	        <span class="pull-right text-muted" role="account-id">not signed in</span>
+		</div>
+      </div>
 
-    <div>
-      <h3>Messages</h3>
-      <ul id="messageList"></ul>
-    </div>
-	<script src="/{{version}}/main.js"></script>
+
+    <div class="container">
+      <div class="jumbotron">
+
+		<div class="tab-content">
+			<h1>Serverless Chat</h1>
+			<div role="error-panel">
+			</div>
+		    <div role="tabpanel" class="tab-pane active" id="start">
+				<p class="lead">Welcome to the serverless chat. This is a multi-user online messaging system working
+				completely from a static HTML page, using AWS IOT Gateway web sockets. Check out the <a href="https://github.com/claudiajs/serverless-chat">GitHub</a> project for the source code
+				and installation instructions. </p>
+				<p><a class="btn btn-lg btn-success" id="connect" href="#connecting" role="tab-button">Log in as a guest</a></p>
+			</div>
+		    <div role="tabpanel" class="tab-pane" id="connecting">
+				<div class="alert alert-info" role="alert">Connecting... please wait
+
+				</div>			
+				<form class="form-inline">
+				<a class="btn btn-default" id="back" href="#start" role="tab-button">Cancel</a>
+				</form>
+			</div>
+		    <div role="tabpanel" class="tab-pane" id="channels">
+				<div class="alert alert-success" role="alert">You are now connected as 
+					<span role="account-id">
+					</span>
+				</div>
+				<h3>Select a chat channel</h3>
+				<form class="form-inline">
+					<button role="channel-selector" href="#subscribing" class="btn btn-primary" role="tab-button">Serverless</button>
+					<button role="channel-selector" href="#subscribing" class="btn btn-success" role="tab-button">JavaScript</button>
+					<button role="channel-selector" href="#subscribing" class="btn btn-info" role="tab-button">Coffee</button>
+				</form>
+				<h3>... or join a new one</h3>
+				<form class="form-inline" id="subscribe" action="">
+					<div class="form-group" id="create-group">
+						<div class="input-group">
+							<div class="input-group-addon">Create new:</div>
+							<input type="text" class="form-control" id="topic" placeholder="Channel name">
+						</div>
+					</div>
+					<button role="channel-creator" href="#subscribing" class="btn btn-primary" role="tab-button">Join</button>
+				</form>
+				<p></p>
+				<form class="form-inline">
+					<a class="btn btn-default" id="sign-out" href="#start" role="tab-button">Sign out</a>
+				</form>
+			</div>
+			 <div role="tabpanel" class="tab-pane" id="subscribing">
+				 <div class="alert alert-info" role="alert">Joining channel <span role="channel-name"></span> ... please wait</div>			
+				<form class="form-inline">
+				<a class="btn btn-default" href="#channels" role="tab-button">Cancel</a>
+				<a class="btn btn-primary" disabled="disabled" id="tab-messages" href="#messages" role="tab-button">View Messages</a>
+				</form>
+			</div>
+
+		    <div role="tabpanel" class="tab-pane" id="messages">
+					<div>
+						<ul id="messageList"></ul>
+					</div>
+
+					<form id="messageForm">
+						<div class="form-group">
+							<label for="messageText">Send message</label>
+							<textarea class="form-control" id="messageText" placeholder="message text"></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary pull-right">Send</button>
+						<button class="btn btn-default pull-left" id="channel-select" href="#channels" role="tab-button">Back to channels</button>
+					</form>
+			</div>
+		</div>
+	 </div>
+	</div>
+    <script src="/{{version}}/main.js"></script>
   </body>
 </html>

@@ -1,10 +1,15 @@
 /*global require, module, __dirname, process, console */
 const path = require('path'),
-	//webpack = require('webpack'),
+	webpack = require('webpack'),
 	env = process.env.npm_package_config_buildenv,
 	packageName = process.env.npm_package_name,
 	BabiliPlugin = require('babili-webpack-plugin'),
-	plugins = [];
+	plugins = [
+		new webpack.ProvidePlugin({
+			$: 'jquery',
+			jQuery: 'jquery'
+		})
+	];
 
 if (!env) {
 	throw `package buildenv is not defined, aborting. Please run from NPM and optionally specify the build environment using --${packageName}:buildenv=<ENV>`;

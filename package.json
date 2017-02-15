@@ -7,8 +7,9 @@
     "clean": "rm -rf site",
     "build-site": "mkdir -p site && node src/util/package-html.js",
     "build-scripts": "webpack",
+    "build-styles": "mkdir -p site && cleancss -o site/$npm_package_version/main.css src/style/main.css",
     "serve-dev": "http-server site -c-1",
-    "rebuild": "npm run clean && npm run build-site --$npm_package_name:buildenv=$npm_package_config_buildenv && webpack",
+    "rebuild": "npm run clean && npm run build-site --$npm_package_name:buildenv=$npm_package_config_buildenv && webpack && npm run build-styles",
     "env": "env"
   },
   "config": {
@@ -22,6 +23,8 @@
   "license": "MIT",
   "devDependencies": {
     "babili-webpack-plugin": "0.0.10",
+    "clean-css": "^4.0.7",
+    "clean-css-cli": "^4.0.7",
     "crypto-js": "^3.1.8",
     "eslint": "^3.15.0",
     "eslint-config-crockford": "^1.0.0",
@@ -29,10 +32,13 @@
     "exports-loader": "^0.6.3",
     "handlebars": "^4.0.6",
     "http-server": "^0.9.0",
+    "imports-loader": "^0.7.0",
     "webpack": "^2.2.1"
   },
   "dependencies": {
     "aws-sdk": "^2.13.0",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.1",
     "paho-mqtt": "^1.0.3"
   }
 }

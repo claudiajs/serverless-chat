@@ -18,7 +18,7 @@ module.exports = function MQTTClient(options) {
 		},
 		onConnect = function (args) {
 			log('connected', args);
-			self.dispatchEvent('connected');
+			self.dispatchEvent('connected', userCredentials);
 		},
 		onFailure = function (err) {
 			log('error ===>', err);
@@ -59,7 +59,7 @@ module.exports = function MQTTClient(options) {
 		pahoClient.onMessageDelivered = onMessageDelivered;
 	};
 	self.subscribe = function (topicName) {
-		self.dispatchEvent('subscribing');
+		self.dispatchEvent('subscribing', topicName);
 		return new Promise(function (resolve, reject) {
 			if (!pahoClient) {
 				reject('not connected');
@@ -84,7 +84,7 @@ module.exports = function MQTTClient(options) {
 				onFailure: onSubscribeFail
 			});
 		}).then(function () {
-			return self.post('{"id":"' + userCredentials.identityId + '"}');
+			return self.post(userCredentials.identityId + ' joined the chat');
 		});
 	};
 	self.post = function (messageText) {
