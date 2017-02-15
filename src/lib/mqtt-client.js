@@ -70,10 +70,12 @@ module.exports = function MQTTClient(options) {
 			const onSubscribeSuccess = function () {
 					currentTopic = topicName;
 					log('subscribed to ' + currentTopic);
+					self.dispatchEvent('subscribed', currentTopic);
 					resolve(topicName);
 				},
 				onSubscribeFail = function (error) {
 					log('failed to subscribe to ' + topicName);
+					onFailure(error);
 					reject(error.errorCode || error);
 				};
 			if (currentTopic) {
