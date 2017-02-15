@@ -1,6 +1,6 @@
-/*global module, Paho, console, require */
-//TODO: require PAHO
+/*global module, console, require */
 const observable = require('./observable'),
+	Paho = require('exports-loader?Paho!paho-mqtt'),
 	generateSignedWebsocketURL = require('./generate-signed-websocket-url');
 module.exports = function MQTTClient(options) {
 	'use strict';
